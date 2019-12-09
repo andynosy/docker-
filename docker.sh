@@ -49,9 +49,9 @@ write_files:
       pip3 install --upgrade pip
       pip  install docker dumper pyyaml
 
-      usermod -a -G docker verizon
+      usermod -a -G docker andylab
 
       mkdir /opt/docker
-      chown verizon. /opt/docker
+      chown andylab. /opt/docker
     path: /root/docker-setup.sh
     permissions: '0700'
