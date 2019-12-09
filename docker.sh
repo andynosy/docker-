@@ -1,22 +1,20 @@
 #cloud-config
 users:
   - default
-  - name: verizon
-    passwd: $6$/fIMAFecJn1max80$tWtOqbFYcNge8vchkkVJgd95BJLZ196sMM59ARW2mtaDyqpTLczyCdGcPFGhVnVODxmppu9YaVY5lDGPx1rhU0
+  - name: andylab
+    passwd: 
     lock_passwd: false
     sudo: ALL=(ALL) NOPASSWD:ALL
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkYNOYhJxmQOStVeuRWvpihamy0i0q9zdP+TwB3civJrKqriAc5uJEQwahD/Fc2fKBMscy7d/+lWDLOdrRGfVdL1wV0+OCHohbfpBezZBAFOCmeDhl3LAcYVwA5Fxy28TwkNu90gJYhEoNPnjHQxtpi4uA/miXuM+mvmI53R48zA+n3BdnfbVucSBbrLqKM0Ehyc8USdHh5rxyP8mesFMyJcrYKXylLPel2P5vvlFDeyu8LeyPbwYd0ES3xB07pCwKu9JyCjtkUxmqyeF/z5LkWNfQQAXRQsX1qfmXkH3npK4yMVJfkFSLbbhtYJF7DwVOx+vF9TzBrYnxlC8xWOHX
-
+      - ssh-rsa 
 ssh_pwauth: yes
 
-password: $6$/fIMAFecJn1max80$tWtOqbFYcNge8vchkkVJgd95BJLZ196sMM59ARW2mtaDyqpTLczyCdGcPFGhVnVODxmppu9YaVY5lDGPx1rhU0
+password: 
 
 chpasswd:
   expire: False
   list:
-    - root:$6$/fIMAFecJn1max80$tWtOqbFYcNge8vchkkVJgd95BJLZ196sMM59ARW2mtaDyqpTLczyCdGcPFGhVnVODxmppu9YaVY5lDGPx1rhU0
-
+    - root:
 write_files:
   - content: |
       #!/usr/bin/env bash
