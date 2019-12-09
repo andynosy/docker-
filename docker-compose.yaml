@@ -1,14 +1,14 @@
 version: "3.5"
 services:
   ldap:
-    image: verizon/me/openldap
+    image: vz/me/openldap
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     environment:
       LDAP_HOST:           "ldap"
-      LDAP_BASEDN:         "dc=ienlab,dc=verizon,dc=com"
+      LDAP_BASEDN:         "dc=ienlab,dc=andynosy,dc=com"
       LDAP_ADMIN_USER:     "admin"
       LDAP_ADMIN_PASSWORD: "XXXXXXXXXXX"
     logging:
@@ -27,7 +27,7 @@ services:
       - "/opt/docker/aaa/ldap/config:/etc/openldap/slapd.d"
       - "/opt/docker/aaa/ldap/data:/var/lib/openldap/openldap-data"
   phpldapadmin:
-    image: verizon/me/phpldapadmin
+    image: vz/me/phpldapadmin
     deploy:
       replicas: 1
       restart_policy:
@@ -46,7 +46,7 @@ services:
     ports:
       - "80:8080/tcp"
   tacplus:
-    image: verizon/me/tacplus
+    image: vz/me/tacplus
     deploy:
       replicas: 1
       restart_policy:
@@ -69,7 +69,7 @@ services:
     volumes:
       - "/opt/docker/aaa/tacplus/tac_plus.cfg:/tacacs/etc/tac_plus.cfg"
   radius:
-    image: verizon/me/freeradius
+    image: vz/me/freeradius
     deploy:
       replicas: 1
       restart_policy:
@@ -78,10 +78,10 @@ services:
       - ldap
     environment:
       LDAP_HOST:           "ldap"
-      LDAP_BASEDN:         "dc=ienlab,dc=verizon,dc=com"
+      LDAP_BASEDN:         "dc=ienlab,dc=andynosy,dc=com"
       LDAP_ADMIN_USER:     "admin"
       LDAP_ADMIN_PASSWORD: "XXXXXXXXXXX"
-      LDAP_ADMIN_FULLDN:   "cn=admin,dc=ienlab,dc=verizon,dc=com"
+      LDAP_ADMIN_FULLDN:   "cn=admin,dc=ienlab,dc=andynosy,dc=com"
     logging:
       driver: "json-file"
       options:
